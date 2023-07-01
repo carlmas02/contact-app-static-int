@@ -1,8 +1,10 @@
 const UserCard = (props) => {
   return (
     <div>
-      <h3>Name : {props.name}</h3>
-      <h4>Phone : {props.phone}</h4>
+      <h3>Amount : {props.transaction.amount}</h3>
+      <h4>Category : {props.transaction.category}</h4>
+      <button>Edit</button>
+      <button>Delete</button>
     </div>
   );
 };
