@@ -4,6 +4,11 @@ const Form = (props) => {
     props.setAmount(event.target.value);
   };
 
+  const handleSubmit = () => {
+    const tempObj = { amount: props.amount, category: props.category };
+    props.setTransactions([...props.transactions, tempObj]);
+  };
+
   return (
     <div>
       {props.amount}
@@ -34,7 +39,7 @@ const Form = (props) => {
       />{" "}
       <label>Saving</label>
       <br />
-      <button>Submit</button>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };

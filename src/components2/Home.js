@@ -8,9 +8,26 @@ const users = ["carl", "ashley", "aryan", "alice"];
 const Home = () => {
   const [amount, setAmount] = useState();
   const [category, setCategory] = useState();
+  const [transactions, setTransactions] = useState([
+    { amount: 200, category: "expense" },
+  ]);
 
-  const displayCard = (user) => {
-    return <UserCard name={user} />;
+  const deleteTransaction = (id) => {
+    const newTransactions = transactions.filter((item, index) => {
+      if (index === id) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+
+    setTransactions(newTransactions);
+  };
+
+  const displayCard = (item, id) => {
+    return (
+      <UserCard item={item} id={id} deleteTransaction={deleteTransaction} />
+    );
   };
 
   const detectClick = () => {
@@ -25,12 +42,14 @@ const Home = () => {
         setAmount={setAmount}
         category={category}
         setCategory={setCategory}
+        transactions={transactions}
+        setTransactions={setTransactions}
       />
       {/* <UserCard name="Carl" phone="1234543" />
       <UserCard name="Jack" phone="4534356" /> */}
-      {users.map(displayCard)}
+      {transactions.map(displayCard)}
 
-      <button onClick={detectClick}>click on me</button>
+      {/* <button onClick={detectClick}>click on me</button> */}
     </div>
   );
 };

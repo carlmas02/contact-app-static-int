@@ -8,6 +8,11 @@ const UserForm = (props) => {
     props.setCategory("expense");
   };
 
+  const handleSubmit = () => {
+    const tempObj = { amount: props.amount, category: props.category };
+    props.setTransactions([...props.transactions, tempObj]);
+  };
+
   return (
     <div>
       {/* {props.amount}
@@ -30,13 +35,7 @@ const UserForm = (props) => {
         name="category"
       />{" "}
       <label>Saving</label> <br />
-      <button
-        onClick={() => {
-          console.log(props.amount, props.category);
-        }}
-      >
-        Submit
-      </button>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };

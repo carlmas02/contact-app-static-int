@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+  .usercard{
+    background-color: rgb(58, 228, 58);
+    width: 300px;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
+    font-family: cursive;
+    color: white;
+    /* font-weight: 700; */
+
+  }
+
+  .usercard button{
+    all: unset;
+    /* border: 1px solid black; */
+    border-radius: 2px;
+    margin:2px;
+    padding:3px;
+    cursor: pointer;
+    background-color: white;
+    color: rgb(58, 228, 58);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+  }
+
+  .usercard button:hover{
+    background-color: rgb(225, 225, 225);
+  }
