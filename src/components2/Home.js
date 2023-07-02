@@ -24,9 +24,28 @@ const Home = () => {
     setTransactions(newTransactions);
   };
 
+  const updateTransaction = (id) => {
+    const amountInp = prompt("Please enter an amount you want to update ?");
+
+    const newTransactions = transactions.map((item, index) => {
+      if (id == index) {
+        return { ...item, amount: amountInp };
+      } else {
+        return item;
+      }
+    });
+
+    setTransactions(newTransactions);
+  };
+
   const displayCard = (item, id) => {
     return (
-      <UserCard item={item} id={id} deleteTransaction={deleteTransaction} />
+      <UserCard
+        item={item}
+        id={id}
+        deleteTransaction={deleteTransaction}
+        updateTransaction={updateTransaction}
+      />
     );
   };
 
